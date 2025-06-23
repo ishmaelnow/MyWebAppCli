@@ -7,15 +7,16 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use Ubuntu runner
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3  # Checks out your code
 
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 8.0.x
+        dotnet-version: 9.0.x  # Target .NET 9.0
+        include-prerelease: true  # Ensures preview versions like .NET 9 are included
 
     - name: Restore dependencies
       run: dotnet restore
